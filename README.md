@@ -17,6 +17,7 @@
 ### Association
 - has_many :items
 - has_many :records
+- has_one :address
 
 
 ## itemsテーブル
@@ -45,3 +46,19 @@
 ### Association
 - belongs_to :user
 - belongs_to :item
+
+
+### addressテーブル
+| Column        | Type      | Options           |
+|---------------|-----------|-------------------|
+| user          | reference | foreign_key: true |
+| postal_code   | string    | null: false       |
+| prefectur_id  | integer   | null: false       |
+| city          | string    | null: false       |
+| house_number  | string    | null: false       |
+| building_name | string    |                   |
+| phone_number  | string    | null: false       |
+
+
+### Association
+- belongs_to :user
