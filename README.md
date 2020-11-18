@@ -5,7 +5,6 @@
 | Column             | Type    | Options     |
 |--------------------|---------|-------------|
 | email              | string  | null: false |
-| password           | string  | null: false |
 | encrypted_password | string  | null: false |
 | nickname           | string  | null: false |
 | last_name          | string  | null: false |
@@ -41,7 +40,6 @@
 |-----------|------------|-------------------|
 | user      | references | foreign_key: true |
 | item      | references | foreign_key: true |
-| address   | references | foreign_key: true |
 
 ### Association
 - belongs_to :user
@@ -52,7 +50,7 @@
 ### addressテーブル
 | Column        | Type       | Options           |
 |---------------|------------|-------------------|
-| user          | references | foreign_key: true |
+| record        | references | foreign_key: true |
 | postal_code   | string     | null: false       |
 | prefectur_id  | integer    | null: false       |
 | city          | string     | null: false       |
@@ -62,5 +60,4 @@
 
 
 ### Association
-- belongs_to :user
 - belongs_to :record
