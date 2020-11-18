@@ -24,6 +24,7 @@
 | user                    | references | foreign_key: true |
 | title                   | string     | null: false       |
 | detail                  | text       | null: false       |
+| category_id             | integer    | null: false       | 
 | item_condition_id       | integer    | null: false       |
 | item_cost_id            | integer    | null: false       |
 | delivery_area_id        | integer    | null: false       |
