@@ -65,10 +65,22 @@ RSpec.describe User, type: :model do
           expect(@user.errors.full_messages).to include('名前は不正な値です')
         end
 
+        it 'kana_last_nameが空だと無効' do
+          @user.kana_last_name = ""
+          @user.valid?
+          expect(@user.errors.full_messages).to include('名字（カナ）を入力してください')
+        end
+
         it 'kana_last_nameがカタカナ以外だと無効' do
           @user.kana_last_name = '田中'
           @user.valid?
           expect(@user.errors.full_messages).to include('名字（カナ）は不正な値です')
+        end
+
+        it 'kana_first_nameが空だと無効' do
+          @user.kana_first_name = ""
+          @user.valid?
+          expect(@user.errors.full_messages).to include('名前（カナ）を入力してください')
         end
 
         it 'kana_first_nameがカタカナ以外だと無効' do
