@@ -15,10 +15,10 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
-  extend ActiveHash::Associations::ActiveRecodeExtensions
+  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
-  belongs_to :item_condition 
+  belongs_to :item_condition
   belongs_to :item_cost
   belongs_to :delivery_area
-  belongs_to :delivery_date
+  belongs_to :delivery_date 
 end
