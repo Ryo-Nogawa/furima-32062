@@ -44,43 +44,43 @@ RSpec.describe User, type: :model do
         it 'last_nameが空だと無効' do
           @user.last_name = ""
           @user.valid?
-          expect(@user.errors.full_messages).to include("Last nameを入力してください")
+          expect(@user.errors.full_messages).to include("名字を入力してください")
         end
         
         it 'last_nameが漢字・平仮名以外だと無効' do
           @user.last_name = "aaa"
           @user.valid?
-          expect(@user.errors.full_messages).to include("Last nameは不正な値です")
+          expect(@user.errors.full_messages).to include("名字は不正な値です")
         end
         
         it 'first_nameが空だと無効' do
           @user.first_name = ""
           @user.valid?
-          expect(@user.errors.full_messages).to include("First nameを入力してください")
+          expect(@user.errors.full_messages).to include("名前を入力してください")
         end
         
         it 'first_nameが漢字・平仮名以外だと無効' do
           @user.first_name = "aaa"
           @user.valid?
-          expect(@user.errors.full_messages).to include("First nameは不正な値です")
-        end
-
-        it 'kana_first_nameがカタカナ以外だと無効' do
-          @user.kana_first_name = "田中"
-          @user.valid?
-          expect(@user.errors.full_messages).to include("Kana first nameは不正な値です")
+          expect(@user.errors.full_messages).to include("名前は不正な値です")
         end
 
         it 'kana_last_nameがカタカナ以外だと無効' do
-          @user.kana_last_name = "太郎"
+          @user.kana_last_name = "田中"
           @user.valid?
-          expect(@user.errors.full_messages).to include("Kana last nameは不正な値です")
+          expect(@user.errors.full_messages).to include("名字（カナ）は不正な値です")
+        end
+
+        it 'kana_first_nameがカタカナ以外だと無効' do
+          @user.kana_first_name = "太郎"
+          @user.valid?
+          expect(@user.errors.full_messages).to include("名前（カナ）は不正な値です")
         end
         
         it 'birthdayが空だと無効' do
           @user.birthday = ""
           @user.valid?
-          expect(@user.errors.full_messages).to include("Birthdayを入力してください")
+          expect(@user.errors.full_messages).to include("生年月日を入力してください")
         end
       end
     end
