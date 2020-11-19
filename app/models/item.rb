@@ -7,7 +7,7 @@ class Item < ApplicationRecord
     validates :category_id,       numericality: { other_than: 1}
     validates :item_condition_id, numericality: { other_than: 1}
     validates :item_cost_id,      numericality: { other_than: 1}
-    validates :delivery_area_id,  numericality: { other_than: 1} 
+    validates :delivery_area_id,  numericality: { other_than: 0 } 
     validates :delivery_date_id,  numericality: { other_than: 1}
     validates :price,            numericality: { only_integer: true, greater_than: 300, less_than: 9999999}, format: {with: /\A[0-9]+\z/ }
   end
