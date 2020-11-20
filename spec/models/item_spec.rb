@@ -27,7 +27,7 @@ RSpec.describe Item, type: :model do
         end
 
         it '商品名が40文字以上だと無効' do
-          @item.title = ("a" * 50)
+          @item.title = ('a' * 50)
           @item.valid?
           expect(@item.errors.full_messages).to include('商品名は40文字以内で入力してください')
         end
@@ -39,7 +39,7 @@ RSpec.describe Item, type: :model do
         end
 
         it '商品の説明が1000文字以上だと無効' do
-          @item.detail = ("a" * 1200)
+          @item.detail = ('a' * 1200)
           @item.valid?
           expect(@item.errors.full_messages).to include('商品の説明は1000文字以内で入力してください')
         end
@@ -87,7 +87,7 @@ RSpec.describe Item, type: :model do
         end
 
         it '価格が9999999以上だと無効' do
-          @item.price = 100000000
+          @item.price = 100_000_000
           @item.valid?
           expect(@item.errors.full_messages).to include('販売価格は9999999より小さい値にしてください')
         end
