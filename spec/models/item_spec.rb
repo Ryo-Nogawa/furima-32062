@@ -99,11 +99,10 @@ RSpec.describe Item, type: :model do
         end
 
         it '価格が半角英語だと無効' do
-          @item.price = "aaaa"
+          @item.price = 'aaaa'
           @item.valid?
           expect(@item.errors.full_messages).to include('販売価格は数値で入力してください')
         end
-
       end
     end
   end
