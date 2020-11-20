@@ -128,7 +128,6 @@
 
       <%# itemテーブルの中身の有無で条件分岐 %>
       <% if @items.empty? == false %>
-      <% binding.pry %>
         <%# itemテーブルの中身を展開 %>
         <% @items.each do |item| %>
           <li class='list'>
