@@ -128,50 +128,49 @@
 
       <%# itemテーブルの中身の有無で条件分岐 %>
       <% if @items.empty? == false %>
-      <% binding.pry %>
         <%# itemテーブルの中身を展開 %>
         <% @items.each do |item| %>
           <li class='list'>
-            <%= link_to "#" do %>
-            <div class='item-img-content'>
-              <%= image_tag item.image, class: "item-img" %>
+            <%= link_to  item_path(item.id) do %>
+              <div class='item-img-content'>
+                <%= image_tag item.image, class: "item-img" %>
+              </div>
+              <div class='item-info'>
+                <h3 class='item-name'>
+                  <%= item.title %>
+                </h3>
+                <div class='item-price'>
+                  <span><%= item.price %>円<br><%= item.item_cost.name %></span>
+                  <div class='star-btn'>
+                    <%= image_tag "star.png", class:"star-icon" %>
+                    <span class='star-count'>0</span>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+      <% else %>
+        <li class='list'>
+          <%= link_to item_path(@items.id) do %>
+            <div class="item-img-content">
+              <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class: "item-img" %>
+              <div class='sold-out'>
+                <span>Sold Out!!</span>
+              </div>
             </div>
             <div class='item-info'>
               <h3 class='item-name'>
-                <%= item.title %>
+                商品を出品してね！
               </h3>
               <div class='item-price'>
-                <span><%= item.price %>円<br><%= item.item_cost.name %></span>
+                <span>99999999円<br>(税込み)</span>
                 <div class='star-btn'>
                   <%= image_tag "star.png", class:"star-icon" %>
                   <span class='star-count'>0</span>
                 </div>
               </div>
             </div>
-            <% end %>
-          </li>
-        <% end %>
-      <% else %>
-        <li class='list'>
-          <%= link_to '#' do %>
-          <div class="item-img-content">
-            <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class: "item-img" %>
-            <div class='sold-out'>
-              <span>Sold Out!!</span>
-            </div>
-          </div>
-          <div class='item-info'>
-            <h3 class='item-name'>
-              商品を出品してね！
-            </h3>
-            <div class='item-price'>
-              <span>99999999円<br>(税込み)</span>
-              <div class='star-btn'>
-                <%= image_tag "star.png", class:"star-icon" %>
-                <span class='star-count'>0</span>
-              </div>
-            </div>
-          </div>
           <% end %>
         </li>
       <% end %>
