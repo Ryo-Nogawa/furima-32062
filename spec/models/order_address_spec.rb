@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe OrderAddress, type: :model do
   describe OrderAddress do
-    before do 
+    before do
       @order_address = FactoryBot.build(:order_address)
     end
 
@@ -57,7 +57,7 @@ RSpec.describe OrderAddress, type: :model do
         end
 
         it '市区町村にカタカナが含まれていると無効' do
-          @order_address.city = "アイウエオ"
+          @order_address.city = 'アイウエオ'
           @order_address.valid?
           expect(@order_address.errors.full_messages).to include('市区町村は不正な値です')
         end
@@ -75,13 +75,13 @@ RSpec.describe OrderAddress, type: :model do
         end
 
         it '電話番号が10桁未満だと無効' do
-          @order_address.phone_number = 12345
+          @order_address.phone_number = 12_345
           @order_address.valid?
           expect(@order_address.errors.full_messages).to include('電話番号は不正な値です')
         end
 
         it '電話番号が11桁以上だと無効' do
-          @order_address.phone_number = 12345678912345
+          @order_address.phone_number = 12_345_678_912_345
           @order_address.valid?
           expect(@order_address.errors.full_messages).to include('電話番号は不正な値です')
         end

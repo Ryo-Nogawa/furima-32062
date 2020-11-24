@@ -52,5 +52,4 @@ class Prefectual < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :address
-
 end
