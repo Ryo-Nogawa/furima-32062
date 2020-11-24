@@ -2,7 +2,7 @@ class OrderAddress
   include ActiveModel::Model
 
   # 保存したいカラム名
-  attr_accessor :user_id, :item_id, :order_id, :postal_code, :prefectual_id, :city, :house_number, :building_name, :phone_number, :token
+  attr_accessor :user_id, :item_id, :postal_code, :prefectual_id, :city, :house_number, :building_name, :phone_number, :token
 
   # バリデーション
   with_options presence: true do
