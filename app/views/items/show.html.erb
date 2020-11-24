@@ -31,7 +31,11 @@
       <% if current_user.id == @item.user_id %>
         <%= link_to '商品の編集', edit_item_path(@item.id), method: :get, class: "item-red-btn" %>
         <p class='or-text'>or</p>
+<<<<<<< Updated upstream
         <%= link_to '削除', item_path(@item.id), method:  :delete, class:'item-destroy' %>
+=======
+        <%= link_to '削除', item_path(@item.id), method: :delete, class:'item-destroy' %>
+>>>>>>> Stashed changes
       <%# 出品したユーザーには表示されない %>
       <% else %>
         <%= link_to '購入画面に進む', "#" ,class:"item-red-btn"%>
