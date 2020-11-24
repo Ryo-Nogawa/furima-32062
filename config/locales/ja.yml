@@ -1,5 +1,9 @@
 ja:
   activerecord:
+    models:
+      user: ユーザー
+      item: 商品
+      address: 住所
     attributes:
       user:
         nickname: ニックネーム
@@ -8,7 +12,7 @@ ja:
         kana_last_name: 名字（カナ）
         kana_first_name: 名前（カナ）
         birthday: 生年月日
-
+    
       item:
         image: 出品画像
         title: 商品名
@@ -19,3 +23,11 @@ ja:
         delivery_area_id: 配送元の地域
         delivery_date_id: 配送までの日数
         price: 販売価格
+
+  attributes:
+    postal_code: 郵便番号
+    prefectual_id: 都道府県
+    city: 市区町村
+    house_number: 番地
+    phone_number: 電話番号
+    token: クレジットカード情報
