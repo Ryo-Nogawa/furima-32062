@@ -5,8 +5,10 @@ class OrdersController < ApplicationController
 
   def index
     @order_address = OrderAddress.new
-    # if current_user.id == @item.user_id && @item.order != nil
-    # if @item.order != nil && current_user.id == @item.user_id
+    #orderテーブルに商品がないか、または現在のユーザーと出品者のIDが一致したら
+    # if @item.order != nil || current_user.id == @item.user_id
+    #   redirect_to root_path
+    # end
     redirect_to root_path unless @item.order.nil?
   end
 
